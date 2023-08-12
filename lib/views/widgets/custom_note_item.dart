@@ -28,7 +28,7 @@ class NoteItem extends StatelessWidget {
                 'create your notes with elesawy',
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.5),
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
               ),
             ),
