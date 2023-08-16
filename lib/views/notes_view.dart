@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
 
 import 'widgets/note_view_body.dart';
 import 'widgets/show_note_button_shet.dart';
