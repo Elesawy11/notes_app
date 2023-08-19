@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+
 import 'custom_app_bar.dart';
 
 import 'note_list_view.dart';
@@ -16,14 +17,16 @@ class _NotesViewBodyState extends State<NotesViewBody> {
   @override
   void initState() {
     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        children:  [
+        children: [
           SizedBox(
             height: 50,
           ),

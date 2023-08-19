@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({Key? key, required this.note}) : super(key: key);
 
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,48 +19,50 @@ class NoteItem extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         decoration: BoxDecoration(
-          color: Colors.orange,
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
+        padding: const EdgeInsets.only(left: 16, top: 24, bottom: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter tips',
-                style: TextStyle(
-                  color: Colors.black,
+              title: Text(
+                note.title,
+                style: const TextStyle(
                   fontSize: 26,
+                  color: Colors.black,
                 ),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.only(top: 16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  'create your notes with elesawy',
+                  note.subTitle,
                   style: TextStyle(
-                    color: Colors.black.withOpacity(0.5),
                     fontSize: 18,
+                    color: Colors.black.withOpacity(.4),
                   ),
                 ),
               ),
               trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    FontAwesomeIcons.trash,
-                    color: Colors.black,
-                    size: 24,
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16, right: 24),
-              child: Text(
-                'may11/2023',
-                style: TextStyle(
-                    color: Colors.black.withOpacity(0.5), fontSize: 16),
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.black,
+                  size: 30,
+                ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                note.date,
+                style: TextStyle(
+                  color: Colors.black.withOpacity(.4),
+                ),
+              ),
+            )
           ],
         ),
       ),
