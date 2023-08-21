@@ -5,6 +5,9 @@ import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/custom_app_bar.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
+
+import '../../constant.dart';
+import 'color_list_view.dart';
 // import 'package:flutter/src/widgets/placeholder.dart';
 
 class EditNoteViewBody extends StatefulWidget {
@@ -16,7 +19,7 @@ class EditNoteViewBody extends StatefulWidget {
 }
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
-   String? title,content;
+  String? title, content;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             const SizedBox(
               height: 40,
             ),
-             CustomTextField(
+            CustomTextField(
               onChanged: (value) {
                 title = value;
               },
@@ -51,7 +54,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             const SizedBox(
               height: 16,
             ),
-             CustomTextField(
+            CustomTextField(
               onChanged: (value) {
                 content = value;
               },
@@ -59,11 +62,15 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               maxLines: 5,
             ),
             const SizedBox(
-              height: 80,
+              height: 20,
             ),
+            EditNoteColorList(
+              note: widget.note,
+            )
           ],
         ),
       ),
     );
   }
 }
+
